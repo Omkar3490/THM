@@ -1,0 +1,2 @@
+## Packet Numbers
+Wireshark calculates the number of investigated packets and assigns a unique number for each packet. This helps the analysis process for big captures and makes it easy to go back to a specific point of an event.
