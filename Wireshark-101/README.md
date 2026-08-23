@@ -1,21 +1,3 @@
-Structure of a TryHackMe Writeup (for GitHub)
-
-A good writeup has two goals: show your methodology and demonstrate your thinking, not just paste answers. Recruiters and hiring managers look for this.
-
-📁 Recommended GitHub Repo Structure
-THM-Writeups/
-├── README.md               ← Index of all rooms
-├── Wireshark-101/
-│   ├── README.md           ← The actual writeup
-│   └── screenshots/        ← Evidence images
-├── Nmap/
-│   └── README.md
-└── ...
-📝 Writeup Template (Wireshark Room Example)
-
-Here's the Markdown template you should follow:
-
-markdown
 # 🔍 TryHackMe — Wireshark: The Basics
 
 | Field         | Details                              |
@@ -32,17 +14,14 @@ markdown
 ## 📌 Room Overview
 
 Brief 2–3 line summary of what the room covers.  
-> e.g., "This room introduces Wireshark for packet capture analysis, filtering traffic,
-> and identifying suspicious patterns — core skills for a L1 SOC Analyst."
-
+Wireshark is an open-source, cross-platform network packet analyser tool capable of sniffing and investigating live traffic and inspecting packet captures (PCAP). It is commonly used as one of the best packet analysis tools. In this room, we will look at the basics of Wireshark and use it to perform fundamental packet analysis.
 ---
 
 ## 🎯 Learning Objectives
 
-- Understand how to open and navigate .pcap files
-- Apply display filters to isolate traffic
-- Identify protocols and anomalies in packet captures
-- Extract files/credentials from traffic
+- Navigate and configure Wireshark
+- Inspect packets and discover information from the different layers of TCP/IP
+- Apply display filters
 
 ---
 
@@ -51,7 +30,7 @@ Brief 2–3 line summary of what the room covers.
 | Tool       | Purpose                    |
 |------------|----------------------------|
 | Wireshark  | Packet capture analysis    |
-| tshark     | CLI-based packet analysis  |
+     
 
 ---
 
@@ -67,35 +46,67 @@ Brief description of what the task covers.
 
 ### Task 2 — Tool Overview
 
-**Question:** What is the name of the packet detail pane?
+Wireshark is one of the most potent traffic analyser tools available in the wild. There are multiple purposes for its use:
+
+Detecting and troubleshooting network problems, such as network load failure points and congestion.
+Detecting security anomalies, such as rogue hosts, abnormal port usage, and suspicious traffic.
+Investigating and learning protocol details, such as response codes and payload data.
+
+**Question:**Read the "capture file comments". What is the flag?
 
 **Approach:**
-Explain *how* you found it — don't just give the answer.
-> "Opened Wireshark → observed the three main panels: Packet List, Packet Details,
-> and Packet Bytes. The middle pane is the Packet Detail pane."
+> "Opened Wireshark → statistics → capture file properties → capture file comments section
 
-**Answer:** `Packet Details`
+
+**Answer:** `TryHackMe_Wireshark_Demo`
 
 📸 *(Screenshot: wireshark-panels.png)*
 
 ---
+**Question:**What is the total number of packets?
+**Approach:**
+> "Opened Wireshark → shows at bottom right side total number of packets
+**Answer:*58620* ``
 
-### Task 3 — Packet Filtering
+**Question:**What is the SHA256 hash value of the capture file?
+**Approach:**
+> "Opened Wireshark → statistics → capture file properties → Hash (SHA256)
+**Answer:*f446de335565fb0b0ee5e5a3266703c778b2f3dfad7efeaeccb2da5641a6d6eb* ``
 
-**Question:** Filter HTTP traffic. How many packets are shown?
+📸 *(Screenshot: wireshark-panels.png)*
 
-**Filter Used:**
+### Task 2 - Packet dissection
 
-http
-
+**Question:** View packet number 38. Which markup language is used under the HTTP protocol?
 
 **Approach:**
-> "Applied the display filter `http` in the filter bar. The status bar at the bottom
-> shows the filtered count."
+> at packet details section → application layer(HTTP) → application data(XML)
 
-**Answer:** `15`
-
+**Answer:** `eXtensible markup language`
+📸 *(Screenshot: wireshark-panels.png)*
 ---
+**Question:** What is the arrival date of the packet? (Answer format: Month/Day/Year)?
+**Approach:**
+> time section
+**Answer:** `05/13/2004`
+
+**Question:** What is the TTL value?
+**Approach:**
+> packet details pane → Internet Protocol Version 4 → Time to Live field
+**Answer:** `47`
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** What is the TCP payload size?
+**Approach:**
+> packet details pane → Transmission control protocol → under the time stamp section
+**Answer:** `424`
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** What is the e-tag value?
+**Approach:**
+> packet details pane → Hypertext transfer protocol → etag value field
+**Answer:** `9a01a-4696-7e354b00`
+📸 *(Screenshot: wireshark-panels.png)*
 
 ## 🔑 Key Takeaways (SOC Relevance)
 
