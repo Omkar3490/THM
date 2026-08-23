@@ -107,6 +107,56 @@ Investigating and learning protocol details, such as response codes and payload 
 **Answer:** `9a01a-4696-7e354b00`
 📸 *(Screenshot: wireshark-panels.png)*
 
+### Task 3 - packet navigation
+
+**Question:** Search the "r4w" string in packet details. What is the name of artist 1?
+**Approach:**
+> Go to edit option and select the find packet option
+**Answer:** `r4w8173`
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** Go to packet 12 and read the packet comments. What is the answer?
+**Approach:**
+> Go to menu edit option and select the find packet option
+**Answer:** `r4w8173`
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** Go to packet 12 and read the packet comments. What is the answer?
+Note: use md5sum <filename> terminal command to get MD5 hash
+**Approach:** go to packet number 12 and from its comment go to packet number 39765 export the jpeg section and apply md5sum to extract the hash value
+> 
+**Answer:*911cd574a42865a956ccde2d04495ebf* ``
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** There is a ".txt" file inside the capture file. Find the file and read it; what is the alien's name?
+**Approach:** go the menu : File → Export objects → filter .txt save and open the file 
+> 
+**Answer:*PACKETMASTER* ``
+
+**Question:** Look at the expert info section. What is the number of warnings?
+**Approach:** go the menu : Analyze → Export information → view the count of warnings 
+**Answer:*1636* ``
+
+### Task 4 - Packet filtering 
+
+**Question:** Go to packet number 4. Right-click on the "Hypertext Transfer Protocol" and apply it as a filter. Now, look at the filter pane. What is the filter query?
+
+**Answer:*HTTP* ``
+
+**Question:** What is the number of displayed packets?
+**Approach:**Apply the HTTP filter and packet count displayed at bottom
+**Answer:*1089* ``
+
+**Question:** Go to packet number 33790, follow the HTTP stream, and look carefully at the responses.Looking at the web server's response, what is the total number of artists?
+**Approach:**click the packet → Follow → HTTP Stream
+**Answer:*3* ``
+
+📸 *(Screenshot: wireshark-panels.png)*
+
+**Question:** What is the name of the second artist?
+**Answer:*Blad3* ``
+
+
 ## 🔑 Key Takeaways (SOC Relevance)
 
 Connect what you learned to real-world L1 work:
