@@ -51,7 +51,7 @@ Detecting and troubleshooting network problems, such as network load failure poi
 Detecting security anomalies, such as rogue hosts, abnormal port usage, and suspicious traffic.
 Investigating and learning protocol details, such as response codes and payload data.
 
-**Question:**Read the "capture file comments". What is the flag?
+**Question:** Read the "capture file comments". What is the flag?
 
 **Approach:**
 > "Opened Wireshark → statistics → capture file properties → capture file comments section
@@ -62,12 +62,12 @@ Investigating and learning protocol details, such as response codes and payload 
 📸 *(Screenshot: wireshark-panels.png)*
 
 ---
-**Question:**What is the total number of packets?
+**Question:** What is the total number of packets?
 **Approach:**
 > "Opened Wireshark → shows at bottom right side total number of packets
 **Answer:*58620* ``
 
-**Question:**What is the SHA256 hash value of the capture file?
+**Question:** What is the SHA256 hash value of the capture file?
 **Approach:**
 > "Opened Wireshark → statistics → capture file properties → Hash (SHA256)
 **Answer:*f446de335565fb0b0ee5e5a3266703c778b2f3dfad7efeaeccb2da5641a6d6eb* ``
